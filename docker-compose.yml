@@ -15,17 +15,18 @@ services:
       - "5432:5432"
 
   pontoilumeoapi:
-    image: node:latest
-    container_name: ilumeo-api
+    container_name: api_ilumeo
+    image: node:18
+    working_dir: /usr/src/app
     restart: always
+    command: bash -c "npm install && npm start"
     depends_on:
       - postgres
     ports:
       - "3000:3000"
     volumes:
-      - .:/usr/src/app
-    working_dir: /usr/src/app
-    command: npm start
+      - ./dist/:/usr/src/app/dist/
+      - ./package.json:/usr/src/app/package.json
     logging:
       driver: "json-file"
       options:
