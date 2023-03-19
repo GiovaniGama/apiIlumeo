@@ -1,14 +1,6 @@
-version: "2"
+version: "3.2"
 
-services:
-  pontoilumeoapi:
-    build: .
-    command: npm start
-    ports: 
-      - "3000:3000"
-    volumes:
-      - .:/usr/app
-  
+services: 
   postgres:
     container_name: postgres-ilumeo
     image: postgres
@@ -19,4 +11,22 @@ services:
     volumes:
       - ./data:/data/postgres
     ports:
-      - "5432:5432"
+      - ${DB_PORT}:${DB_PORT}
+
+  pontoilumeoapi:
+    image: node:latest
+    container_name: ilumeo-api
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: npm start
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
