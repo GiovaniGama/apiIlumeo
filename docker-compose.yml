@@ -4,6 +4,7 @@ services:
   postgres:
     container_name: postgres-ilumeo
     image: postgres
+    restart: always
     environment: 
       POSTGRES_USER: ilumeo
       POSTGRES_PASSWORD: 1234
@@ -11,7 +12,7 @@ services:
     volumes:
       - ./data:/data/postgres
     ports:
-      - ${DB_PORT}:${DB_PORT}
+      - "5432:5432"
 
   pontoilumeoapi:
     image: node:latest
@@ -20,7 +21,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - ${SERVER_PORT}:${SERVER_PORT}
+      - "3000:3000"
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
