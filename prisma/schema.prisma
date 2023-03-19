@@ -9,3 +9,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id_user       Int    @id @default(autoincrement())
+  user          String @db.VarChar(255) @unique
+  work_schedule WorkSchedule[]
+}
+
+model WorkSchedule {
+  id        Int      @id @default(autoincrement())
+  check_in  DateTime
+  check_out DateTime
+  user      User     @relation(fields: userId, references: id_user)
+  userId    Int 
+}
