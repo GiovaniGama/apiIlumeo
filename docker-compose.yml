@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  pontoilumeoapi:
+    build: .
+    command: npm start
+    ports: 
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+  
+  postgres:
+    container_name: postgres-ilumeo
+    image: postgres
+    environment: 
+      POSTGRES_USER: ilumeo
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ilumeoDB
+    volumes:
+      - ./data:/data/postgres
+    ports:
+      - "5432:5432"
