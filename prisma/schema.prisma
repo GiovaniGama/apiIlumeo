@@ -10,16 +10,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id_user       Int    @id @default(autoincrement())
-  user          String @db.VarChar(255) @unique
-  work_schedule WorkSchedule[]
+  id_user   Int    @id @default(autoincrement())
+  user      String @db.VarChar(255) @unique
+  password  String @db.VarChar(255)  
+  check_in  CheckIn[]
+  check_out CheckOut[]
 }
 
-model WorkSchedule {
+model CheckIn {
   id        Int      @id @default(autoincrement())
   check_in  DateTime
+  user      User     @relation(fields: userId, references: id_user)
+  userId    Int 
+}
+
+model CheckOut {
+  id        Int      @id @default(autoincrement())
   check_out DateTime
   user      User     @relation(fields: userId, references: id_user)
   userId    Int 

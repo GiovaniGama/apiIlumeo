@@ -1,34 +1,15 @@
-version: "3.2"
+version: "3"
 
 services: 
   postgres:
+    image: 'postgres:latest'
     container_name: postgres-ilumeo
-    image: postgres
     restart: always
     environment: 
       POSTGRES_USER: ilumeo
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: ilumeoDB
     volumes:
-      - ./data:/data/postgres
+      - ./data:/data/postgressql/data
     ports:
       - "5432:5432"
-
-  pontoilumeoapi:
-    container_name: api_ilumeo
-    image: node:18
-    working_dir: /usr/src/app
-    restart: always
-    command: bash -c "npm install && npm start"
-    depends_on:
-      - postgres
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./dist/:/usr/src/app/dist/
-      - ./package.json:/usr/src/app/package.json
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "5"
