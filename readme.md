@@ -14,6 +14,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [NODE]
 - [PRISMA]
+- [EXPRESS]
 - [TS]
 - [POSTGRESS]
 - [DOCKER]
