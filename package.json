@@ -9,8 +9,8 @@
     "up": "docker-compose up -d",
     "migration:generate":"npx prisma generate",
     "migration:run": "npx prisma migrate dev --name init",
-    "build": "rm -rf ./dist && tsc",
-		"start": "node ./dist/server.ts"
+    "build": "tsc",
+    "start": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
