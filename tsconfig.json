@@ -14,7 +14,7 @@
 		"strict": true,
 		"noImplicitAny": true,
 		"strictPropertyInitialization": false,
-		"rootDir": "src"
+		"typeRoots": ["./src/@types"]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist"],
