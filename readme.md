@@ -17,10 +17,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [TS]
 - [POSTGRESS]
 
-para dev:
-
-- [WebFlow]
-
 ---
 
 Desenvolvido por Giovani Gama
