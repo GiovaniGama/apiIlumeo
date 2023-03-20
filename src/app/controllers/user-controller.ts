@@ -30,8 +30,8 @@ export class UserController{
         const createNewUser = new CreateUserService()
         const hashUser = await bcrypt.hash(password, 10)
                                                                                                                              
-        const newUser = createNewUser.createUser(user_name, hashUser)
+        const crete = createNewUser.createUser(user_name, hashUser)
                   
-        return res.status(201).json({message: 'User created!'})
+        return res.status(201).json({user: (await crete).user})
     }
 }
