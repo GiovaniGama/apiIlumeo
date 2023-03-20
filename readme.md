@@ -27,5 +27,7 @@ para rodar em dev:
 - npm run migration:run
 - configurar o .env colocando uma senha JWT e url do banco em dev
 - npm run dev
-
+   
+---
+   
 Desenvolvido por Giovani Gama
