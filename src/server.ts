@@ -1,7 +1,7 @@
+import 'express-async-errors'
 import express from 'express'
 import { errorMiddleware } from './app/middlewares/error'
 import { objectRouter } from './app/routes/routes'
-
 
 const PORT = 3000
 const HOST = '0.0.0.0'

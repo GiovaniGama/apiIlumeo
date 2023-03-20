@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 export class CreateUserService{
-    async createUser(user: string){
+    async createUser(user: string, password: string){
         const prisma = new PrismaClient()
 
         const newUser = 
@@ -9,7 +9,8 @@ export class CreateUserService{
             .user
             .create({
                 data: {
-                    user
+                    user:user,
+                    password: password
                 }
             })
 
