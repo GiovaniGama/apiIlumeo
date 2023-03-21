@@ -9,10 +9,6 @@ export class UserController{
         const prisma = new PrismaClient()
         const {user_name, password} = req.body
 
-        if(typeof user_name != 'string'){
-            throw new UnauthorizedError('The user must be up to 10 characters!')
-        }
-
         if(user_name.length > 10){
             throw new UnauthorizedError('The user must be up to 10 characters!')
         }
