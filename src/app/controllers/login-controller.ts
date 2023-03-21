@@ -26,7 +26,7 @@ export class LoginController{
             throw new BadRequestError('User or password invalid!')
         }
 
-        const token = jwt.sign({ id: userExist.id_user}, process.env.JWT_PASS ?? '', {expiresIn: '1h'})
+        const token = jwt.sign({ id: userExist.id_user}, process.env.JWT_PASS ?? '', {expiresIn: '8d'})
 
         const {password: _, ...userLogin} = userExist
         

@@ -14,6 +14,7 @@ objectRouter.post('/user', userController.createUserName)
 objectRouter.post('/login', loginUser.loginUser)
 objectRouter.use(authMiddleware)
 objectRouter.get('/auth', loginUser.getProfile)
+objectRouter.get('/schedule', workScheduleController.getWorkSchedule)
 objectRouter.post('/create-schedule', workScheduleController.createWorkSchedule)
 
 export { objectRouter }
