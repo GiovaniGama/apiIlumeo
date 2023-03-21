@@ -14,20 +14,13 @@ model User {
   id_user   Int    @id @default(autoincrement())
   user      String @db.VarChar(255) @unique
   password  String @db.VarChar(255)  
-  check_in  CheckIn[]
-  check_out CheckOut[]
+  work_schedule workSchedule[]
 }
 
-model CheckIn {
-  id        Int      @id @default(autoincrement())
-  check_in  DateTime
-  user      User     @relation(fields: userId, references: id_user)
-  userId    Int 
-}
-
-model CheckOut {
-  id        Int      @id @default(autoincrement())
-  check_out DateTime
-  user      User     @relation(fields: userId, references: id_user)
-  userId    Int 
+model workSchedule{
+  id_schedule     Int    @id @default(autoincrement())
+  date_check_in   DateTime 
+  date_check_out  DateTime 
+  user User @relation(fields: id_user, references: id_user)
+  id_user Int
 }

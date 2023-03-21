@@ -1,6 +1,34 @@
-1-npm install
-2-npx prisma generate
-3-npm run mig  -- para rodar as migrations
-4-configurar o .env
-5-npm run up -- rodar o docker para ter acesso ao banco de dados
-6-npm run dev -- para rodar local
+# Api ponto Ilumeu
+
+<a href="https://ilumeo-api-deploy.cyclic.app"> --> Acessar a Api <-- </a>
+
+## 🔖&nbsp; Sobre
+
+   Esta **Api** foi desenvolvida com intuito de passa na vaga de dev Full stack na empresa Ilumeo
+
+---
+
+## Tecnologias utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [NODE]
+- [PRISMA]
+- [EXPRESS]
+- [TS]
+- [POSTGRESS]
+- [DOCKER]
+
+---
+   
+para rodar em dev:
+- npm install
+- npm run up -> Subir o banco de dados com a imagem docker
+- npm run migration:generate
+- npm run migration:run
+- configurar o .env colocando uma senha JWT e url do banco em dev
+- npm run dev
+   
+---
+   
+Desenvolvido por Giovani Gama
