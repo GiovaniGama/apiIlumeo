@@ -16,7 +16,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     }
 
     const token = authorization.split(' ')[1]
-
+    
     const { id } = jwt.verify(token, process.env.JWT_PASS ?? '') as JwtPayload
 
     const userExist = await prisma.user.findUnique({
